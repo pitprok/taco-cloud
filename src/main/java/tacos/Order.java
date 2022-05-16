@@ -1,21 +1,32 @@
 package tacos;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.CreditCardNumber;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 import lombok.Data;
 @Data
 public class Order {
+
+    private Long id;
+    private Date placedAt;
     @NotBlank(message="Name is required")
-    private String name;
+    private String deliveryName;
     @NotBlank(message="Street is required")
-    private String street;
+    private String deliveryStreet;
     @NotBlank(message="City is required")
-    private String city;
+    private String deliveryCity;
     @NotBlank(message="State is required")
-    private String state;
+    @Size(max=2, message="Only state name abbreviations are accepted")
+    private String deliveryState;
     @NotBlank(message="Zip code is required")
-    private String zip;
+    @Size(max=10, message="Zip code must be a maximum of 10 characters long")
+    private String deliveryZip;
     @CreditCardNumber(message="Not a valid credit card number")
     private String ccNumber;
     @Pattern(regexp="^(0[1-9]|1[0-2])([\\/])([1-9][0-9])$",
@@ -23,4 +34,9 @@ public class Order {
     private String ccExpiration;
     @Digits(integer=3, fraction=0, message="Invalid CVV")
     private String ccCVV;
+
+    private List<Taco> tacos = new ArrayList<>();
+    public void addDesign(Taco design) {
+        this.tacos.add(design);
+    }
 }
