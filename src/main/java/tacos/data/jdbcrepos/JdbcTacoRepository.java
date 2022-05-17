@@ -1,4 +1,4 @@
-package tacos.data;
+package tacos.data.jdbcrepos;
 import tacos.Taco;
 
 public interface JdbcTacoRepository {

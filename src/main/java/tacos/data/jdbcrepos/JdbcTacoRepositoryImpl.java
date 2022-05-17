@@ -1,4 +1,4 @@
-package tacos.data;
+package tacos.data.jdbcrepos;
 
 import java.sql.Timestamp;
 import java.sql.Types;

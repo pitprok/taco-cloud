@@ -5,6 +5,14 @@
     <title>Taco Cloud</title>
 </head>
 <body>
+<form method="POST" th:action="@{/login}">
+    <input type="submit" value="Login"/>
+    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+</form>
+<form method="POST" th:action="@{/logout}">
+    <input type="submit" value="Logout"/>
+    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+</form>
 <h1>Welcome to...</h1>
 <img th:src="@{/images/TacoCloud.png}"/>
 </body>
