@@ -1,10 +1,18 @@
 package tacos.web;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
 import javax.validation.Valid;
+
+import lombok.extern.slf4j.Slf4j;
+import tacos.Ingredient;
+import tacos.Ingredient.Type;
+import tacos.Order;
+import tacos.Taco;
+import tacos.data.IngredientRepository;
+import tacos.data.TacoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,14 +23,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
-
-import lombok.extern.slf4j.Slf4j;
-import tacos.Order;
-import tacos.Taco;
-import tacos.Ingredient;
-import tacos.Ingredient.Type;
-import tacos.data.IngredientRepository;
-import tacos.data.TacoRepository;
 
 @Slf4j
 @Controller
